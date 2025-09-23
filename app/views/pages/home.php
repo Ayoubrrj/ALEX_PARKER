@@ -20,7 +20,7 @@
                             </a>
                         </div>
                         <div class="post-info">
-                          <span><?php echo \Core\Helpers\formatDate($post['created_at'])?></span> | <span> Life style ???? dois changer selon le post</span>
+                          <span><?php echo \Core\Helpers\formatDate($post['created_at'])?></span> | <span> <?php echo $post['name'] ?></span>
                         </div>
                         <p>
                           <?php echo \Core\Helpers\truncate($post['text']) ?>

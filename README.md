@@ -7,4 +7,4 @@ Un blog simple en PHP MVC procédural
 -   Procédural
 -   Versionning (GITKRAKEN)
 -   Partials
--   Sous-routersx
+-   Sous-routers
