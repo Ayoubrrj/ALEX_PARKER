@@ -20,10 +20,10 @@
                             </a>
                         </div>
                         <div class="post-info">
-                          <span><?php echo $post['created_at']?></span> | <span>Life style ???? dois changer selon le post</span>
+                          <span><?php echo \Core\Helpers\formatDate($post['created_at'])?></span> | <span> Life style ???? dois changer selon le post</span>
                         </div>
                         <p>
-                          <?php echo $post['text']?>
+                          <?php echo \Core\Helpers\truncate($post['text']) ?>
                         </p>
                         <a
                           href="single.html"
