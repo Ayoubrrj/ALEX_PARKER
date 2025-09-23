@@ -22,7 +22,7 @@
 
           <!-- Blog Post (Right Sidebar) Start -->
           <div class="col-md-9">
-            <?php echo $content; ?>
+            <?php include_once '../app/views/templates/partials/_main.php'; ?>
 
             <!-- Footer Start -->
             <div class="col-md-12 page-body margin-top-50 footer">
@@ -42,10 +42,6 @@
     <!-- Back to Top End -->
 
     <!-- All Javascript Plugins  -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/plugin.js"></script>
-
-    <!-- Main Javascript File  -->
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <?php include_once '../app/views/templates/partials/_scripts.php'; ?>
   </body>
 </html>
