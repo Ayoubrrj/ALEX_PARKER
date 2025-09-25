@@ -10,7 +10,7 @@
     <meta name="copyright" content="company name" />
     <meta name="robots" content="index,follow" />
 
-    <title>DevBlog - Personal Blog Template - <?php $title; ?></title>
+    <title>DevBlog - Personal Blog Template - <?php echo $title; ?></title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon/favicon.ico" />

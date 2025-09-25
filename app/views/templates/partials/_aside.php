@@ -1,9 +1,4 @@
-<div class="about-fixed">
-              <div class="my-pic">
-                <?php include_once '../app/views/templates/partials/_nav.php'; ?>
-              </div>
-
-              <div class="my-detail">
+<div class="my-detail">
                 <div class="white-spacing">
                   <h1>Alex Parker</h1>
                   <span>Web Developer</span>
@@ -32,4 +27,3 @@
                   </li>
                 </ul>
               </div>
-            </div>

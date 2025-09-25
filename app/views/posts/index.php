@@ -3,7 +3,7 @@
                 <div class="col-md-12 content-page">
                   <!-- ADD A POST -->
                   <div>
-                    <a href="form.html" type="button" class="btn btn-primary"
+                    <a href="?posts=form" type="button" class="btn btn-primary"
                       >Add a Post</a
                     >
                   </div>
@@ -20,13 +20,14 @@
                             </a>
                         </div>
                         <div class="post-info">
-                          <span><?php echo \Core\Helpers\formatDate($post['created_at'])?></span> | <span> <?php echo $post['name'] ?></span>
+                          <span><?php echo \Core\Helpers\formatDate($post['created_at'])?></span> | <span><?php echo $post['name'] ?></span>
                         </div>
                         <p>
                           <?php echo \Core\Helpers\truncate($post['text']) ?>
                         </p>
+                        <!-- j'ai donné un alias a post id dans postsModel -->
                         <a
-                          href="single.html"
+                          href="?posts=show&id=<?php echo $post['postID']?>"
                           class="
                             button button-style button-anim
                             fa fa-long-arrow-right
