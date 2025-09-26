@@ -3,20 +3,36 @@ RewriteEngine on
 # ROUTES
 
 # posts.show
-# URL: posts/id/slug
+# URL: posts/id/slug.html
 # PATTERN: ?posts=show&id=x
-RewriteRule ^posts/([1-9][0-9]*)/[a-z0-9][a-z0-9\-]*$ index.php?posts=show&id=$1 [L]
+RewriteRule ^posts/([1-9][0-9]*)/[a-z0-9][a-z0-9\-]*\.html$ index.php?posts=show&id=$1 [L]
 
-# ROUTE users.login-form
-# URL: users/login-form
-# PATTERN: ?users=login-form
-RewriteRule ^users/login\-form$ index.php?users=login-form [L]
+# posts.form (ajout)
+# URL: posts/add/form.html
+# PATTERN: ?posts=form
+RewriteRule ^posts/add/form\.html$ index.php?posts=form [L]
 
-# ROUTE users.login
-# URL: users/login
-# PATTERN: ?users=login
-RewriteRule ^users/login$ index.php?users=login [L]
+# posts.insert (ajout)
+# URL: posts/add/insert.html
+# PATTERN: ?posts=insert
+RewriteRule ^posts/add/insert\.html$ index.php?posts=insert [L]
+
+# posts.edit-form (modification)
+# URL: posts/id/slug/edit/form.html
+# PATTERN: ?posts=editForm&id=x
+RewriteRule ^posts/([1-9][0-9]*)/[a-z0-9][a-z0-9\-]*/edit/form\.html$ index.php?posts=editForm&id=$1 [L]
+
+# posts.update (modification)
+# URL: posts/id/slug/edit/update.html
+# PATTERN: ?posts=update&id=x
+RewriteRule ^posts/([1-9][0-9]*)/[a-z0-9][a-z0-9\-]*/edit/update\.html$ index.php?posts=update&id=$1 [L]
+
+# posts.delete (suppression)
+# URL: posts/id/slug/delete.html
+# PATTERN: ?posts=delete&id=x
+RewriteRule ^posts/([1-9][0-9]*)/[a-z0-9][a-z0-9\-]*/delete\.html$ index.php?posts=delete&id=$1 [L]
 
 # --------------------------------------------------
+# Catch-all: ignore fichiers statiques, tout le reste → index.php
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
 RewriteRule ^(.*)$ index.php [L]

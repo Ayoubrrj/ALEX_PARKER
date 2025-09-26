@@ -8,10 +8,10 @@ function indexAction(PDO $connexion) {
 
     // Je vais demander des données aux modèles
     include_once '../app/models/postsModel.php';
-    $posts = \App\Models\PostsModel\findAll($connexion);
+    $posts = \App\Models\PostsModel\findAll($connexion, 10);
 
     include_once '../app/models/categoriesModel.php';
-    $categories = \App\Models\CategoriesModel\findAll($connexion);
+    $categories = \App\Models\CategoriesModel\findAllWithPostCount($connexion);
 
     // Je charge la vue 'home' dans $content
     global $content, $title;

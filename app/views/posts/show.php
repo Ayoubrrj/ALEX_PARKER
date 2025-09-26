@@ -1,8 +1,8 @@
-<div class="col-md-9">
+<!-- <div class="col-md-9"> --> 
             <div class="col-md-12 page-body">
               <div class="row">
                 <div class="sub-title">
-                  <a href="?" title="Go to Home Page"
+                  <a href="<?php echo PUBLIC_BASE_URL; ?>" title="Go to Home Page"
                     ><h2>Back Home</h2></a
                   >
                   <a href="#comment" class="smoth-scroll"
@@ -13,7 +13,7 @@
                 <div class="col-md-12 content-page">
                   <div class="col-md-12 blog-post">
                     <div>
-                      <img src="images/blog/1.jpg" alt="">
+                      <img src="<?php echo PUBLIC_BASE_URL; ?>/images/blog/1.jpg" alt="">
                     </div>
 
                     <!-- Post Headline Start -->
@@ -26,7 +26,7 @@
 
                     <!-- Post Detail Start -->
                     <div class="post-info">
-                      <span><?php echo \Core\Helpers\formatDate($post['created_at'])?></span> | <span><?php echo $post['name'] ?></span>
+                      <span><?php echo \Core\Helpers\formatDate($post['created_at'])?></span> | <span><?php echo $post['category_name'] ?></span>
                     </div>
                     <!-- Post Detail End -->
 
@@ -59,4 +59,4 @@
                   </div>
                 </div>
               </div>
-            </div>
+            <!--</div>-->

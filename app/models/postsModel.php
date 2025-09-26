@@ -3,13 +3,14 @@ namespace App\Models\PostsModel;
 
 use \PDO;
 
-function findAll (PDO $connexion, int $limit = 10) : array {
-    $sql = "SELECT *, p.id AS postID, c.id AS categoryID
-            FROM posts p 
-            JOIN categories c ON p.category_id = c.id
-            ORDER BY p.created_at DESC
+function findAll(PDO $connexion, int $limit = 10): array
+{
+    $sql = "SELECT posts.*, categories.name AS category_name
+            FROM posts
+            INNER JOIN categories 
+            ON posts.category_id = categories.id
+            ORDER BY posts.created_at DESC
             LIMIT :limit;";
-            // vu que je rentre un parametre (int) je fais pas query mais un prepare
     $rs = $connexion->prepare($sql);
     $rs->bindValue(':limit', $limit, PDO::PARAM_INT);
     $rs->execute();
@@ -18,7 +19,7 @@ function findAll (PDO $connexion, int $limit = 10) : array {
 
 function findOneById(PDO $conn, int $id): array
 {
-    $sql = "SELECT p.*, c.name
+    $sql = "SELECT p.*, c.name AS category_name
             FROM posts p
             JOIN categories c ON p.category_id = c.id
             WHERE p.id = :id;";

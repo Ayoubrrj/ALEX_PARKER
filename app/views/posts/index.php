@@ -1,41 +1,13 @@
-<div class="col-md-12 page-body">
-              <div class="row">
-                <div class="col-md-12 content-page">
-                  <!-- ADD A POST -->
+                 <!-- ADD A POST -->
                   <div>
-                    <a href="?posts=form" type="button" class="btn btn-primary"
+                    <a href="posts/add/form.html" type="button" class="btn btn-primary"
                       >Add a Post</a
                     >
                   </div>
                   <!-- ADD A POST END -->
 
                   <!-- Blog Post Start -->
-                  <div class="col-md-12 blog-post row">
-                    <?php foreach($posts as $post) : ?>
-                        <div class="post-title">
-                          <a href="single.html"
-                            ><h1>
-                              <?php echo $post['title']?>
-                            </h1>
-                            </a>
-                        </div>
-                        <div class="post-info">
-                          <span><?php echo \Core\Helpers\formatDate($post['created_at'])?></span> | <span><?php echo $post['name'] ?></span>
-                        </div>
-                        <p>
-                          <?php echo \Core\Helpers\truncate($post['text']) ?>
-                        </p>
-                        <!-- j'ai donné un alias a post id dans postsModel -->
-                        <a
-                          href="?posts=show&id=<?php echo $post['postID']?>"
-                          class="
-                            button button-style button-anim
-                            fa fa-long-arrow-right
-                          "
-                          ><span>Read More</span></a
-                        >
-                    <?php endforeach; ?>
-                  </div>
+                  <?php include '../app/views/posts/_index.php'; ?>
                   <!-- Blog Post End -->
 
                   <nav aria-label="Page navigation example" style="text-align: center;">
@@ -47,7 +19,3 @@
                       <li class="page-item"><a class="page-link" href="#">Next</a></li>
                     </ul>
                   </nav>
-
-                </div>
-              </div>
-            </div>
