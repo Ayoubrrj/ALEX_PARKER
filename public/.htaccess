@@ -12,7 +12,6 @@ RewriteRule ^posts/([1-9][0-9]*)/[a-z0-9][a-z0-9\-]*\.html$ index.php?posts=show
 # AFFICHAGE DU FORMULAIRE D'AJOUT D'UN POST
 # URL: posts/add/form.html
 # PATTERN: ?posts=form
-# FROM: ?posts=form TO:posts/add/form.html
 RewriteRule ^posts/add/form\.html$ index.php?posts=form [L]
 
 # AJOUT D'UN POST : INSERT

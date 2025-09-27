@@ -44,11 +44,12 @@
 
                     <!-- Post Buttons -->
                     <div>
-                      <a href="form.html" type="button" class="btn btn-primary"
-                        >Edit Post</a
-                      >
+                      <a href="<?php echo PUBLIC_BASE_URL; ?>posts/<?php echo $post['id']; ?>/<?php echo \Core\Helpers\slugify($post['title']); ?>/edit/form.html" 
+                      class="btn btn-primary">
+                      Edit Post
+                      </a>
                       <a
-                        href="#"
+                        href="<?php echo PUBLIC_BASE_URL; ?>posts/<?php echo $post['id']; ?>/<?php echo \Core\Helpers\slugify($post['title']); ?>/delete.html"
                         type="button"
                         class="btn btn-secondary"
                         role="button"

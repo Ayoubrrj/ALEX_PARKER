@@ -30,6 +30,32 @@ switch ($_GET['posts']):
     		//PAS DE TITLE CAR REDIRECTION VERS LA PAGE D'ACCUEIL
         PostsController\insertAction($connexion, $_POST);
         break;
+    case 'editForm':
+        // ROUTE DE MODIFICATION D'UN POST: Affichage du formulaire
+            // PATTERN: /posts/id/slug-du-post/edit/form.html
+            // CTRL: PostsController
+            // ACTION: editAction
+            // TITLE: Alex Parker - Edit a post
+        PostsController\editFormAction($connexion, $_GET['id']);
+    break;
+    case 'update':
+        // ROUTE DE MODIFICATION D'UN POST: UPDATE
+            // PATTERN: ?posts=update&id=x
+            // URL: /posts/id/slug-du-post/edit/update.html
+            // CTRL: PostsController
+            // ACTION: updateAction
+            // PAS DE TITLE CAR REDIRECTION
+        PostsController\updateAction($connexion, $_GET['id']);
+    break;
+    case 'delete':
+        // ROUTE DE MODIFICATION D'UN POST: UPDATE
+            // PATTERN: ?posts=update&id=x
+            // URL: /posts/id/slug-du-post/edit/update.html
+            // CTRL: PostsController
+            // ACTION: updateAction
+            // PAS DE TITLE CAR REDIRECTION
+        PostsController\deleteAction($connexion, $_GET['id']);
+    break;
     default:
         // ACTION: index
         PostsController\indexAction($connexion);

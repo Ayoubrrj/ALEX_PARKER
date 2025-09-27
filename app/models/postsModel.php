@@ -19,7 +19,7 @@ function findAll(PDO $connexion, int $limit = 10): array
 
 function findOneById(PDO $connexion, int $id): array
 {
-    $sql = "SELECT p.*, c.name AS category_name
+    $sql = "SELECT p.*, c.name AS category_name, p.id AS postID, c.id AS categoryID
             FROM posts p
             JOIN categories c ON p.category_id = c.id
             WHERE p.id = :id;";
@@ -47,4 +47,12 @@ function insertOne(PDO $connexion, array $data)
     $rs->bindValue(':category_id', $data['category_id'], PDO::PARAM_INT);
     $rs->execute();
     return $connexion->lastInsertId();
+}
+
+function deleteOneById(PDO $connexion, $id) {
+    $sql = "DELETE FROM posts
+            WHERE id = :id;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, PDO::PARAM_INT);
+    return $rs->execute();
 }

@@ -13,12 +13,12 @@
                   <div class="col-md-12 blog-post">
                     <!-- Post Headline Start -->
                     <div class="post-title">
-                      <h1>Add a Post</h1>
+                      <h1>Edit a Post</h1>
                     </div>
                     <!-- Post Headline End -->
 
                     <!-- Form Start -->
-                    <form action="<?php echo PUBLIC_BASE_URL; ?>posts/add/insert.html" method="post">
+                    <form action="<?php echo PUBLIC_BASE_URL; ?>posts/<?php echo $post['id']; ?>/slug/edit/update.html">
                       <div class="form-group">
                         <label for="title">Title</label>
                         <input
@@ -27,6 +27,7 @@
                           id="title"
                           class="form-control"
                           placeholder="Enter your title here"
+                          value="<?php echo $post['title'] ?>"
                         />
                       </div>
                       <div class="form-group">
@@ -37,7 +38,7 @@
                           class="form-control"
                           rows="5"
                           placeholder="Enter your text here"
-                        ></textarea>
+                        ><?php echo $post['text'] ?></textarea>
                       </div>
                       <div class="form-group">
                         <label for="exampleFormControlFile1"> Image</label>
@@ -51,7 +52,7 @@
                           class="form-control"
                           rows="5"
                           placeholder="Enter your quote here"
-                        ></textarea>
+                        ><?php echo $post['quote'] ?></textarea>
                       </div>
                       <div class="form-group">
                         <label for="text">Category</label>
@@ -59,15 +60,22 @@
                           id="category"
                           name="category_id"
                           class="form-control"
+                          value="<?php echo $post['title'] ?>"
                         >
                           <option disabled selected>
                             Select your category
                           </option>
                           <!-- menu deroulant dynamique -->
                           <?php foreach ($categories as $category) : ?>
-                            <option value="<?php echo $category['id']; ?>">
-                              <?php echo $category['name']; ?>
+                            <?php if ($category['id'] == $post['category_id']) : ?>
+                            <option value="<?php echo $category['id']; ?>" selected>
+                                <?php echo $category['name']; ?>
                             </option>
+                            <?php else : ?>
+                            <option value="<?php echo $category['id']; ?>">
+                                <?php echo $category['name']; ?>
+                            </option>
+                            <?php endif; ?>
                           <?php endforeach; ?>
                         </select>
                       </div>

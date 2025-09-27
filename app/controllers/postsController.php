@@ -13,7 +13,7 @@ function indexAction(PDO $connexion) {
     include_once '../app/models/categoriesModel.php';
     $categories = \App\Models\CategoriesModel\findAllWithPostCount($connexion);
 
-    // Je charge la vue 'home' dans $content
+    // Je charge la vue 'index' dans $content
     global $content, $title;
     $title = "Alex Parker - Blog";
     ob_start();
@@ -25,7 +25,7 @@ function showAction (PDO $connexion, int $id) {
     // Je vais demander des données aux modèles
     include_once '../app/models/postsModel.php';
     $post = \App\Models\PostsModel\findOneById($connexion, $id);
-    // Je charge la vue 'home' dans $content
+    // Je charge la vue 'show' dans $content
     global $content, $title;
     $title = "Alex Parker - " . $post["title"];
     ob_start();
@@ -35,9 +35,9 @@ function showAction (PDO $connexion, int $id) {
 
 function formAction (PDO $connexion) {
     // Je vais demander des données aux modèles (categories)
-    include_once '../app/models/postsModel.php';
-    $categories = \App\Models\PostsModel\findAll($connexion, 5);
-    // Je charge la vue 'home' dans $content
+    include_once '../app/models/categoriesModel.php';
+    $categories = \App\Models\CategoriesModel\findAll($connexion);
+    // Je charge la vue 'form' dans $content
     global $content, $title;
     $title = "Alex Parker - Add a post";
     ob_start();
@@ -53,5 +53,35 @@ function insertAction(PDO $connexion, array $data)
 
     // Redirige vers la page d'accueil
     header('Location: ' . PUBLIC_BASE_URL);
-    exit;
+}
+
+function editFormAction(PDO $connexion, int $id) {
+    // Je vais demander des données aux modèles
+    include_once '../app/models/postsModel.php';
+    $post = \App\Models\PostsModel\findOneById($connexion, $id);
+
+    include_once '../app/models/categoriesModel.php';
+    $categories = \App\Models\CategoriesModel\findAll($connexion);
+    // Je charge la vue 'form' dans $content
+    global $content, $title;
+    $title = "Alex Parker - Edit a post";
+    ob_start();
+    include '../app/views/posts/editForm.php';
+    $content = ob_get_clean();
+}
+
+function updateAction(PDO $connexion, int $id) {
+    // Je demande au modèle de supprimer la catégorie correspondante
+    // Je demande au modéle de modifier le post
+    // Je demande au modèle d'ajouter la catégories correspondantes
+    // je redirige vers la page d'accueil
+    header('Location: ' . PUBLIC_BASE_URL);
+}
+
+function deleteAction (PDO $connexion, int $id) {
+    // Je demande au modèle de supprimer le post
+    include_once '../app/models/postsModel.php';
+    $return = \App\Models\PostsModel\deleteOneById($connexion, $id);
+    // je redirige vers la liste des posts
+    header('Location: ' . PUBLIC_BASE_URL);
 }

@@ -18,3 +18,11 @@ function findAllWithPostCount(PDO $connexion) : array {
     $rs = $connexion->query($sql);
     return $rs->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function findAll(PDO $connexion): array {
+    $sql = "SELECT id, name
+            FROM categories
+            ORDER BY name ASC;";
+    $rs = $connexion->query($sql);
+    return $rs->fetchAll(PDO::FETCH_ASSOC);
+}
