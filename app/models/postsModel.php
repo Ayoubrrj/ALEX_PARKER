@@ -49,6 +49,22 @@ function insertOne(PDO $connexion, array $data)
     return $connexion->lastInsertId();
 }
 
+function updateOne(PDO $connexion, $id, array $data) {
+    $sql = "UPDATE posts
+            SET title = :title,
+                text = :text,
+                quote = :quote,
+                category_id = :category_id
+            WHERE id = :id;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':title', $data['title'], PDO::PARAM_STR);
+    $rs->bindValue(':text', $data['text'], PDO::PARAM_STR);
+    $rs->bindValue(':quote', $data['quote'], PDO::PARAM_STR);
+    $rs->bindValue(':category_id', $data['category_id'], PDO::PARAM_INT);
+    $rs->bindValue(':id', $id, PDO::PARAM_INT);
+    return $rs->execute();
+}
+
 function deleteOneById(PDO $connexion, $id) {
     $sql = "DELETE FROM posts
             WHERE id = :id;";

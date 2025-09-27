@@ -18,7 +18,7 @@
                     <!-- Post Headline End -->
 
                     <!-- Form Start -->
-                    <form action="<?php echo PUBLIC_BASE_URL; ?>posts/<?php echo $post['id']; ?>/slug/edit/update.html">
+                    <form action="<?php echo PUBLIC_BASE_URL; ?>posts/<?php echo $post['id']; ?>/slug/edit/update.html" method="post">
                       <div class="form-group">
                         <label for="title">Title</label>
                         <input
@@ -60,7 +60,6 @@
                           id="category"
                           name="category_id"
                           class="form-control"
-                          value="<?php echo $post['title'] ?>"
                         >
                           <option disabled selected>
                             Select your category

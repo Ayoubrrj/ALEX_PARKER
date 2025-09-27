@@ -45,7 +45,7 @@ switch ($_GET['posts']):
             // CTRL: PostsController
             // ACTION: updateAction
             // PAS DE TITLE CAR REDIRECTION
-        PostsController\updateAction($connexion, $_GET['id']);
+        PostsController\updateAction($connexion, $_GET['id'], $_POST);
     break;
     case 'delete':
         // ROUTE DE MODIFICATION D'UN POST: UPDATE

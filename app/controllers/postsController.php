@@ -70,12 +70,13 @@ function editFormAction(PDO $connexion, int $id) {
     $content = ob_get_clean();
 }
 
-function updateAction(PDO $connexion, int $id) {
-    // Je demande au modèle de supprimer la catégorie correspondante
-    // Je demande au modéle de modifier le post
-    // Je demande au modèle d'ajouter la catégories correspondantes
-    // je redirige vers la page d'accueil
+
+function updateAction(PDO $connexion, $id, array $data) {
+    include_once '../app/models/postsModel.php';
+    \App\Models\PostsModel\updateOne($connexion, $id, $data);
+
     header('Location: ' . PUBLIC_BASE_URL);
+    exit;
 }
 
 function deleteAction (PDO $connexion, int $id) {
