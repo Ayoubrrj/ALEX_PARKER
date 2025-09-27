@@ -2,17 +2,20 @@ RewriteEngine on
 
 # ROUTES
 
-# posts.show
+# AFFICHAGE D'UN POST
 # URL: posts/id/slug.html
 # PATTERN: ?posts=show&id=x
+# FROM: ?posts=show&id=x TO:posts/id/slug.html
 RewriteRule ^posts/([1-9][0-9]*)/[a-z0-9][a-z0-9\-]*\.html$ index.php?posts=show&id=$1 [L]
 
-# posts.form (ajout)
+
+# AFFICHAGE DU FORMULAIRE D'AJOUT D'UN POST
 # URL: posts/add/form.html
 # PATTERN: ?posts=form
+# FROM: ?posts=form TO:posts/add/form.html
 RewriteRule ^posts/add/form\.html$ index.php?posts=form [L]
 
-# posts.insert (ajout)
+# AJOUT D'UN POST : INSERT
 # URL: posts/add/insert.html
 # PATTERN: ?posts=insert
 RewriteRule ^posts/add/insert\.html$ index.php?posts=insert [L]

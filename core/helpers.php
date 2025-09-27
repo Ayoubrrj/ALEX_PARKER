@@ -13,9 +13,14 @@ function truncate(string $string, int $length = 150): string
     }
 }
 // Formate la date
-function formatDate(string $dateFromDb): string {
+function formatDateIndex(string $dateFromDb): string {
     $date = new \DateTime($dateFromDb);
-    return $date->format("F j, Y");
+    return $date->format("y-m-j");
+}
+
+function formatDateShow(string $dateFromDb): string {
+    $date = new \DateTime($dateFromDb);
+    return $date->format("F d, Y");
 }
 
 function slugify(string $text): string

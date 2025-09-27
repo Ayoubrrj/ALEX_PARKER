@@ -2,8 +2,8 @@
             <div class="col-md-12 page-body">
               <div class="row">
                 <div class="sub-title">
-                  <a href="<?php echo PUBLIC_BASE_URL; ?>" title="Go to Home Page"
-                    ><h2>Back Home</h2></a
+                  <a href="<?php echo PUBLIC_BASE_URL; ?>" title="Go to Home Page">
+                    <h2>Back Home</h2></a
                   >
                   <a href="#comment" class="smoth-scroll"
                     ><i class="icon-bubbles"></i
@@ -26,7 +26,7 @@
 
                     <!-- Post Detail Start -->
                     <div class="post-info">
-                      <span><?php echo \Core\Helpers\formatDate($post['created_at'])?></span> | <span><?php echo $post['category_name'] ?></span>
+                      <span><?php echo \Core\Helpers\formatDateShow($post['created_at'])?></span> | <span><?php echo $post['category_name'] ?></span>
                     </div>
                     <!-- Post Detail End -->
 

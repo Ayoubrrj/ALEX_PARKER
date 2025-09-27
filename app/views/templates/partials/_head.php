@@ -10,18 +10,17 @@
 <meta name="copyright" content="company name" />
 <meta name="robots" content="index,follow" />
 
-<title>Alex Parker - <?php echo $title; ?></title>
+<title><?php echo $title; ?></title>
 
 <!-- Favicon -->
-<link rel="shortcut icon" href="<?php echo PUBLIC_BASE_URL; ?>/images/favicon/favicon.ico" />
-<link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="<?php echo PUBLIC_BASE_URL; ?>/images/favicon/apple-touch-icon.png" />
+<link rel="shortcut icon" href="<?php echo PUBLIC_BASE_URL; ?>images/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="<?php echo PUBLIC_BASE_URL; ?>images/favicon/apple-touch-icon.png" />
 
 <!-- All CSS Plugins -->
-<link rel="stylesheet" type="text/css" href="<?php echo PUBLIC_BASE_URL; ?>/css/plugin.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo PUBLIC_BASE_URL; ?>css/plugin.css" />
 
 <!-- Main CSS Stylesheet -->
-<link rel="stylesheet" type="text/css" href="<?php echo PUBLIC_BASE_URL; ?>/css/style.css" />
-
+<link rel="stylesheet" type="text/css" href="<?php echo PUBLIC_BASE_URL; ?>css/style.css" />
 <!-- Google Web Fonts  -->
 <link
   rel="stylesheet"

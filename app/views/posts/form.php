@@ -1,4 +1,24 @@
-<form action="">
+            <div class="col-md-12 page-body">
+              <div class="row">
+                <div class="sub-title">
+                  <a href="<?php echo PUBLIC_BASE_URL; ?>" title="Go to Home Page">
+                    <h2>Back Home</h2>
+                  </a>
+                  <a href="#comment" class="smoth-scroll"
+                    ><i class="icon-bubbles"></i
+                  ></a>
+                </div>
+
+                <div class="col-md-12 content-page">
+                  <div class="col-md-12 blog-post">
+                    <!-- Post Headline Start -->
+                    <div class="post-title">
+                      <h1>Post Form</h1>
+                    </div>
+                    <!-- Post Headline End -->
+
+                    <!-- Form Start -->
+                    <form action="<?php echo PUBLIC_BASE_URL; ?>posts/add/insert.html" method="post">
                       <div class="form-group">
                         <label for="title">Title</label>
                         <input
@@ -43,8 +63,12 @@
                           <option disabled selected>
                             Select your category
                           </option>
-                          <option value="1">Life style</option>
-                          <option value="2">Sport</option>
+                          <!-- menu deroulant dynamique -->
+                          <?php foreach($categories as $category) : ?>
+                            <option value="<?php echo $category['category_id'] ?>">
+                              <?php echo $category['category_name'] ?>
+                            </option>
+                          <?php endforeach; ?>
                         </select>
                       </div>
                       <div>
@@ -60,3 +84,8 @@
                         />
                       </div>
                     </form>
+                    <!-- Form End -->
+                  </div>
+                </div>
+              </div>
+            </div>

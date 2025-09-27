@@ -34,10 +34,24 @@ function showAction (PDO $connexion, int $id) {
 }
 
 function formAction (PDO $connexion) {
+    // Je vais demander des données aux modèles (categories)
+    include_once '../app/models/postsModel.php';
+    $categories = \App\Models\PostsModel\findAll($connexion, 5);
     // Je charge la vue 'home' dans $content
     global $content, $title;
     $title = "Alex Parker - Add a post";
     ob_start();
     include '../app/views/posts/form.php';
     $content = ob_get_clean();
+}
+
+function insertAction(PDO $connexion, array $data)
+{
+    // Je vais demander des données aux modèles
+    include_once '../app/models/postsModel.php';
+    $id = \App\Models\PostsModel\insertOne($connexion, $data);
+
+    // Redirige vers la page d'accueil
+    header('Location: ' . PUBLIC_BASE_URL);
+    exit;
 }
